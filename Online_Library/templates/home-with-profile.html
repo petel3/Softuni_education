@@ -1,0 +1,32 @@
+  {% extends 'base/base.html' %}
+    {% block page_content %}
+
+        <!-- Dashboard Page-->
+        <section id="dashboard-page" class="dashboard">
+            <h1>Dashboard</h1>
+             {% if not books %}
+            <p class="no-books">No books in database!</p>
+            {% else %}
+
+            <ul class="my-books-list">
+            {% for book in books %}
+                <li class="myBooks">
+                        <h3>{{book.title|truncatechars:16}}</h3>
+                        <p>Type: {{ book.type }}</p>
+                        <p class="img"><img src="{{ book.image }}" alt=""></p>
+                        <a class="button" href="{% url 'book details' book.pk %}">Details</a>
+                </li>
+            {% if forloop.counter|divisibleby:3 %}
+                    </ul>
+                    <ul class="my-books-list">
+              {% endif %}
+                {% endfor %}
+                </ul>
+
+            </section>
+{% endif %}
+
+
+
+
+  {% endblock %}
