@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Flower Shop</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1252"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}"/>
+</head>
+<body>
+<div id="wrap">
+    <div class="header">
+        <div class="logo"><a href="#"><img src="{% static 'images/logo.gif' %}" alt="" border="0"/></a></div>
+        <div id="menu">
+            <ul>
+                <li class="selected"><a href="{% url 'index' %}">Home</a></li>
+
+
+                {% if  request.user.is_authenticated %}
+
+                    <li><a href="{% url 'souvenirs' %}">Souvenirs</a></li>
+                    <li><a href="{% url 'flowers' %}">Flowers</a></li>
+                    <li><a href="{% url 'plants' %}">Plants</a></li>
+                    <li><a href="{% url 'jewels' %}">Jewelry</a></li>
+                    <li><a href="{% url 'quotation create' %}">Ordering</a></li>
+                    <li><a href="{% url 'logout user' %}">Logout</a></li>
+
+                {% else %}
+                    <li><a href="{% url 'register' %}">Register</a></li>
+                    <li><a href="{% url 'login user' %}">Login</a></li>
+                {% endif %}
+            </ul>
+            <br><br><br><br>
+            <p>Hello, {{ request.user }}</p>
+
+
+        </div>
+    </div>
+    {% block page_content %}
+    {% endblock %}
+    <div class="footer">
+        <div class="left_footer"><img src="{% static 'images/footer_logo.gif' %}" alt=""/><br/>
+
+            <div class="right_footer"></div>
+        </div>
+    </div>
+</body>
+</html>

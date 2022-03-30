@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block page_content %}
+    <div class="center_content">
+        <div class="left_content">
+
+            <div class="title"><span class="title_icon"><img src="images/bullet1.gif" alt=""/></span>{{ flowers.name }}
+            </div>
+
+            <div class="feat_prod_box_details">
+
+                <div class="prod_img"><img width="100px" src="{{ flowers.image.url }}" alt="{{ flowers.image }}"/><br/>
+                    <br/>
+                </div>
+                <div class="prod_det_box">
+                    <div class="box_top"></div>
+                    <div class="box_center">
+                        <div class="prod_title">Details</div>
+                        <p class="details">{{ flowers.description }} </p>
+                        <div class="price"><strong>Quantity:</strong> <span class="red">{{ flowers.quantity }}</span>
+                        </div>
+                        <div class="price"><strong>PRICE (per one):</strong> <span
+                                class="red">{{ flowers.price|floatformat:2 }} BGN</span></div>
+                        <div class="price"><strong>TOTAL:</strong> <span
+                                class="red">{{ flowers.multiplied_quantity_with_price|floatformat:2 }} BGN</span></div>
+                        <div class="price"><strong>TYPE:</strong> <span class="colors">{{ flowers.type }}
+                            {% if is_owner %}
+                <br><br><br><a class="button edit" href="{% url 'flowers edit' flowers.pk %}">Edit Flower</a>
+                <a class="button delete" href="{% url 'flowers delete' flowers.pk %}">Delete Flower</a>
+                    {% endif %}
+            </span> <span
+
+
+                        </div>
+                        <div class="box_bottom"></div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+
+                <div class="clear"></div>
+            </div>
+            <!--end of left content-->
+
+            <div class="clear"></div>
+        </div>
+
+        <div class="clear"></div>
+    </div>
+    <!--end of left content-->
+
+    <!--end of right content-->
+    <div class="clear"></div>
+    </div>
+
+
+
+
+
+
+
+
+{% endblock %}

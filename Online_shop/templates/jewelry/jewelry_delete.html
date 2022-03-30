@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load crispy_forms_filters %}
+
+{% block page_content %}
+    <h1 class="text-center"></h1>
+    <section class="createPage">
+        <br>
+        <form method="post" action="{% url 'jewels delete' jewelry.pk %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            <h1>Do you want to delete the product {{ object.title }} ? </h1>
+            <p><input type="submit" value="Yes"/> <a href="../">Cancel</a></p>
+
+
+        </form>
+    </section>
+{% endblock %}

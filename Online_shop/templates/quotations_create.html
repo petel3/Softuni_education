@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load crispy_forms_filters %}
+
+{% block page_content %}
+    <h1 class="text-center"></h1>
+    <section class="createPage">
+        <br>
+        <form method="post" action="{% url 'quotation create' %}" >
+            <fieldset>
+
+                <legend>Ask for quotation</legend>
+                <div class="container">
+
+                    {{ form|crispy }}
+                    {% csrf_token %}
+
+                    <button type="submit">Request for quotation</button>
+                </div>
+            </fieldset>
+        </form>
+    </section>
+{% endblock %}

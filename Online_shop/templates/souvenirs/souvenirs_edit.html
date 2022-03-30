@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load crispy_forms_filters %}
+
+{% block page_content %}
+    <h1 class="text-center"></h1>
+    <section class="createPage">
+        <br>
+        <form method="post" action="{% url 'souvenirs edit' souvenir.pk %}" enctype="multipart/form-data">
+            <fieldset>
+                <legend>Edit Souvenir</legend>
+                <div class="container">
+
+                    {{ form|crispy }}
+                    {% csrf_token %}
+                    <!-- Button for Adding Album -->
+                    <button type="submit">Edit Souvenir</button>
+                </div>
+            </fieldset>
+        </form>
+    </section>
+{% endblock %}
