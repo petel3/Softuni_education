@@ -182,12 +182,10 @@ class AskQuotation(models.Model):
         max_length=MAX_LEN_NAME_OF_QUOTATION
     )
     email_to_contact=models.EmailField(
-        null=True,
-        blank=True,
+
     )
     description_for_quotation=models.TextField(
-        null=True,
-        blank=True,
+
     )
     user_key = models.ForeignKey(
         ShopUser, on_delete=models.CASCADE
