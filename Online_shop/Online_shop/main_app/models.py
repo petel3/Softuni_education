@@ -191,4 +191,5 @@ class AskQuotation(models.Model):
     )
     user_key = models.ForeignKey(
         ShopUser, on_delete=models.CASCADE
+
     )
