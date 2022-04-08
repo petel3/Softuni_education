@@ -19,7 +19,7 @@ class URLTests(TestCase):
         self.assertEqual(response.status_code, 302)
 
     def test_edit_flowerspage(self):
-        ShopUser.objects.create(username='django1', password='Valkyrie123',is_staff=1,is_superuser=1)
+        ShopUser.objects.create(username='django1', password='Valkyrie123', is_staff=1, is_superuser=1)
         Flower.objects.create(name='Rose', quantity='3', type='Basket'
                               , description='Beautiful rose', price='15.23', user_key_id=1)
 
@@ -72,7 +72,7 @@ class URLTests(TestCase):
     def test_edit_plantspage(self):
         ShopUser.objects.create(username='django1', password='Valkyrie123', is_staff=1, is_superuser=1)
         Plant.objects.create(name='Kala', quantity='5', type='Winter plant'
-                               , description='Beautiful Necklace', price='5.23', user_key_id=3)
+                             , description='Beautiful Necklace', price='5.23', user_key_id=3)
         response = self.client.get('/plants/edit/1')
         self.assertEqual(response.status_code, 200)
 
@@ -95,7 +95,7 @@ class URLTests(TestCase):
     def test_edit_souvenirspage(self):
         ShopUser.objects.create(username='django1', password='Valkyrie123', is_staff=1, is_superuser=1)
         Souvenir.objects.create(name='Glass', quantity='2', type='Normal'
-                             , description='Beautiful Glass', price='35.23', user_key_id=4)
+                                , description='Beautiful Glass', price='35.23', user_key_id=4)
         response = self.client.get('/souvenirs/edit/1')
         self.assertEqual(response.status_code, 200)
 
